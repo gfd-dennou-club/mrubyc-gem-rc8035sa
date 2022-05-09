@@ -1,9 +1,9 @@
 # coding: utf-8
-# RTC: EPSON RC-8035SA
+# RTC: EPSON RX-8035SA
 #
 # I2C address : 0x32
 
-class RC8035SA
+class RX8035SA
   def initialize(i2c)
     @i2c = i2c
     @i2c.write(0x32, [0xE0, 0x00, 0x00])
