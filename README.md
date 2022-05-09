@@ -5,8 +5,8 @@ mruby/c sources for rc8035sa (Real Time Clock)
 https://www5.epsondevice.com/ja/products/rtc/rx8035sa.html
 
 ### data sheet
-http://akizukidenshi.com/download/ds/seikoepson/rx-8035_am.pdf
-https://support.epson.biz/td/api/doc_check.php?dl=app_RX-8035SA
++ http://akizukidenshi.com/download/ds/seikoepson/rx-8035_am.pdf
++ https://support.epson.biz/td/api/doc_check.php?dl=app_RX-8035SA
 
 ## sample
 
