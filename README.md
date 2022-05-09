@@ -1,5 +1,5 @@
-# mrubyc-gem-rc8035sa
-mruby/c sources for rc8035sa (Real Time Clock)
+# mrubyc-gem-rx8035sa
+mruby/c sources for rx8035sa (Real Time Clock)
 
 ## device
 https://www5.epsondevice.com/ja/products/rtc/rx8035sa.html
@@ -15,7 +15,7 @@ https://www5.epsondevice.com/ja/products/rtc/rx8035sa.html
 i2c = I2C.new(22, 21)
 
 # RTC 初期化. 時刻設定
-rtc = RC8035SA.new(i2c)
+rtc = RX8035SA.new(i2c)
 rtc.write([0x20, 0x03, 0x31, 1, 0x23, 0x59, 0x50]) #年(下2桁), 月, 日, 曜日, 時, 分, 秒
 
 while true
