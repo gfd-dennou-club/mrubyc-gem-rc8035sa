@@ -11,22 +11,25 @@ class RX8035SA
     sleep 0.1
   end
 
-  def read
+  # RTC からの読み込み. 戻り値は数字の配列
+  def read()
     a = @i2c.readfrom(0x32, 8)   # 8 バイト分読み込み
     ctrl2 = a.shift
 
-    data = Array.new
+    @time = Array.new
     i = 0
     [a[6], a[5], a[4], a[3], 0x3f & a[2], a[1], a[0], ctrl2].each do |num|
-      data[i] = sprintf('%02x', num)
+      @time[i] = sprintf('%02x', num)
       i += 1
     end    
-    return data
+
+    return [@time[0].to_i, @time[1].to_i, @time[2].to_i, @time[3].to_i, @time[4].to_i, @time[5].to_i, @time[6].to_i]
   end
 
+  # RTC への書き込み．引数は数字の配列
   def write( idate )
-
     date = Array.new
+    
     # BCD データへの変換
     i = 0
     idate.each do |num|
@@ -39,4 +42,27 @@ class RX8035SA
     @i2c.write(0x32, [0xF0, 0x00])
     sleep 0.1
   end
+
+  def datetime
+    read()
+  end
+
+  # 文字列で日付を戻す
+  def str_date()
+    read()
+    return sprintf("%02d-%02d-%02d", @time[0], @time[1], @time[2]).to_s
+  end
+
+  # 文字列で時間を戻す
+  def str_time()
+    read()
+    return sprintf("%02d:%02d:%02d", @time[4], @time[5], @time[6]).to_s
+  end  
+
+  # 文字列で日時を戻す
+  def str_datetime()
+    read()
+    return sprintf("20%02d%02d%02d%02d%02d%02d", @time[0], @time[1], @time[2], @time[4], @time[5], @time[6]).to_s
+  end
+  
 end
