@@ -64,5 +64,38 @@ class RX8035SA
     read()
     return sprintf("20%02d%02d%02d%02d%02d%02d", @time[0], @time[1], @time[2], @time[4], @time[5], @time[6]).to_s
   end
+
+  # 時刻取得
+  def year()
+    return @time[0].to_i + 2000
+  end
+
+  def year2()
+    return @time[0].to_i
+  end
+
+  def mon()
+    return @time[1].to_i
+  end
+
+  def mday()
+    return @time[2].to_i
+  end
+
+  def wday()
+    return @time[3].to_i
+  end
+
+  def hour()
+    return @time[4].to_i
+  end
+
+  def min()
+    return @time[5].to_i
+  end
+
+  def sec()
+    return @time[6].to_i
+  end
   
 end
