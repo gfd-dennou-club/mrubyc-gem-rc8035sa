@@ -49,19 +49,19 @@ class RX8035SA
 
   # 文字列で日付を戻す
   def str_date()
-    read()
+    #read()
     return sprintf("%02d-%02d-%02d", @time[0], @time[1], @time[2]).to_s
   end
 
   # 文字列で時間を戻す
   def str_time()
-    read()
+    #read()
     return sprintf("%02d:%02d:%02d", @time[4], @time[5], @time[6]).to_s
   end  
 
   # 文字列で日時を戻す
   def str_datetime()
-    read()
+    #read()
     return sprintf("20%02d%02d%02d%02d%02d%02d", @time[0], @time[1], @time[2], @time[4], @time[5], @time[6]).to_s
   end
 
