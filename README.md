@@ -24,7 +24,7 @@ rtc.write([20, 3, 31, 1, 23, 59, 30]) #年(下2桁), 月, 日, 曜日, 時, 分,
 # 適当な時間を表示
 while true
   rtc.read  #時刻の読み出し
-  t0 = sprintf("%02d-%02d-%02d", rtc.year, rtc.mon, rtc.mday)
+  t0 = sprintf("%02d-%02d-%02d", rtc.year - 2000, rtc.mon, rtc.mday)
   t1 = sprintf("%02d:%02d:%02d", rtc.hour, rtc.min, rtc.sec)
 
   puts sprintf("#{t0} #{t1}")
